@@ -140,6 +140,7 @@
     li a:hover {
       color: white;
       border-bottom: 2px solid white;
+      cursor: pointer;
     }
 
     .navbar {
@@ -165,32 +166,32 @@
   <main>
     <div id="_728x90" class="container">
       <span class="tab">728x90</span>
-      <iframe src="1/web/FACILITY-BASKETBALL/728x90/index.html" scrolling="no"></iframe>
+      <iframe src="1/web/FACILITY-BASKETBALL/728x90/index.html" scrolling="no" data-size="728x90"></iframe>
     </div>
     <div class="flex-container">
       <div id="_160x600" class="container">
         <span class="tab">160x600</span>
-        <iframe src="1/web/FACILITY-BASKETBALL/160x600/index.html" scrolling="no"></iframe>
+        <iframe src="1/web/FACILITY-BASKETBALL/160x600/index.html" scrolling="no" data-size="160x600"></iframe>
       </div>
 
       <div>
         <div id="_300x250" class="container">
           <span class="tab">300x250</span>
-          <iframe src="1/web/FACILITY-BASKETBALL/300x250/index.html" scrolling="no"></iframe>
+          <iframe src="1/web/FACILITY-BASKETBALL/300x250/index.html" scrolling="no" data-size="300x250"></iframe>
         </div>
         <div id="_300x50" class="container">
           <span class="tab">300x50</span>
-          <iframe src="1/web/FACILITY-BASKETBALL/300x50/index.html" scrolling="no"></iframe>
+          <iframe src="1/web/FACILITY-BASKETBALL/300x50/index.html" scrolling="no" data-size="300x50"></iframe>
         </div>
         <div id="_320x50" class="container">
           <span class="tab">320x50</span>
-          <iframe src="1/web/FACILITY-BASKETBALL/320x50/index.html" scrolling="no"></iframe>
+          <iframe src="1/web/FACILITY-BASKETBALL/320x50/index.html" scrolling="no" data-size="320x50"></iframe>
         </div>
       </div>
 
       <div id="_300x600" class="container">
         <span class="tab">300x600</span>
-        <iframe src="1/web/FACILITY-BASKETBALL/300x600/index.html" scrolling="no"></iframe>
+        <iframe src="1/web/FACILITY-BASKETBALL/300x600/index.html" scrolling="no" data-size="300x600"></iframe>
       </div>
     </div>
   </main>
@@ -198,7 +199,29 @@
   <script type="text/javascript">
     window.addEventListener('load', function() {
       
+      const navItems = Array.from(document.querySelectorAll('a'));
+      const banners = Array.from(document.querySelectorAll('iframe'));
+      console.log(banners);
+
+      for (let i = 0; i < navItems.length; i++) {
+        navItems[i].addEventListener('click', updateBanners);
+      } 
+
+
+      function updateBanners(e) {
+        let bannerGroup = this.textContent;
+        for (let i = 0; i < navItems.length; i++) {
+          navItems[i].classList.remove('active');
+        }
       
+        this.classList.add('active');
+
+        for (let i = 0; i < banners.length; i++) {
+          let bannerSize = banners[i].dataset.size;
+          let filePath = `1/web/FACILITY-${bannerGroup}/${bannerSize}/index.html`;
+          banners[i].setAttribute('src', filePath);
+        }
+      }
 
     })
   </script>
