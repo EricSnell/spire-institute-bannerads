@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=
+  , initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SB 300X50</title>
+  <style>
+
+    body {
+      margin: 0;
+    }
+
+    #SB__300x50 {
+      display: inline-block;
+    }
+
+    #SB__container {
+      background: url(img/1.jpg);
+      width: 300px;
+      height: 50px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg {
+      width: inherit;
+      height: inherit;
+      position: absolute;
+    }
+
+    #bg-1 {
+      background: url(img/1.jpg);
+      z-index: 8;
+    }
+
+    #bg-2 {
+      background: url(img/2.jpg);
+      z-index: 7;
+    }
+
+    #bg-3 {
+      background: url(img/3.jpg);
+      z-index: 6;
+    }
+
+    #SB__text {
+      background: url(img/graphics.png) -19px 0px;
+      width: 112px;
+      height: 27px;
+      position: absolute;
+      z-index: 9;
+      top: 50%;
+      left: 10px;
+      transform: translateY(-50%);
+    }
+
+    #SB__cta {
+      background: url(img/graphics.png) -457px 0px;
+      width: 89px;
+      height: 27px;
+      position: absolute;
+      top: 50%;
+      right: 45px;
+      transform: translateY(-50%);
+      z-index: 100;
+    }
+
+    #SB__logo {
+      background: url(img/graphics.png) -546px 0px;
+      width: 19px;
+      height: 40px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 99;
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="#" onclick="window.open(clickTag)" id="SB__300x50">
+    <div id="SB__container">
+      <div id="bg-1" class="bg"></div>
+      <div id="bg-2" class="bg"></div>
+      <div id="bg-3" class="bg"></div>
+      <div id="SB__text"></div>
+      <div id="SB__cta"></div>
+      <div id="SB__logo"></div>
+    </div>
+  </a>
+
+  <script src="js/TweenLite.min.js" type=text/javascript></script>
+  <script src="js/CSSPlugin.min.js" type=text/javascript></script>
+  <script src="js/EasePack.min.js" type=text/javascript></script>
+  <script src="js/TimelineLite.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var clickTag = "https://www.spireinstitute.org/";
+
+    (function() {
+      const bg1 = document.getElementById('bg-1');
+      const bg2 = document.getElementById('bg-2');
+      const bg3 = document.getElementById('bg-3');
+      const text = document.getElementById('SB__text');
+      const cta = document.getElementById('SB__cta');
+      const timeline = new TimelineLite();
+
+      timeline
+        // Frame 1
+        .from(text, 1, { left: -115, ease: Power1.ease }, '+=0.5')
+        .to(text, 0, { left: -125, backgroundPositionX: -131, width: 120, height: 27 }, '+=1.3')
+
+        // Frame 2
+        .to(bg1, 1, { opacity: 0 })
+        .to(text, 1, { xPercent: 113, ease: Power1.ease }, '-=1')
+        .to(text, 0, { left: -175, backgroundPositionX: -251, width: 80 }, '+=1.3')
+
+        // Frame 3
+        .to(bg2, 1, { opacity: 0 })
+        .to(text, 1, { xPercent: 230, ease: Power1.ease }, '-=1')
+        .to(text, 0, { left: -400, backgroundPositionX: -331, width: 126, height: 42, yPercent: -18 }, '+=1.3')
+
+        // Frame 4
+        .to(text, 1, { xPercent: 320, ease: Power1.ease })
+        .from(cta, 0.5, { opacity: 0 }, '-=0.5')
+
+    })();
+
+  </script>
+</body>
+</html>

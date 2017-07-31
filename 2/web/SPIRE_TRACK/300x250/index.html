@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=
+  , initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SB 300X250</title>
+  <style>
+
+    body {
+      margin: 0;
+    }
+
+    #SB__300x250 {
+      display: inline-block;
+    }
+
+    #SB__container {
+      background: url(img/1.jpg);
+      width: 300px;
+      height: 250px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    #SB__overlay {
+      width: inherit;
+      height: inherit;
+      background: url(img/graphics.png);
+      position: absolute;
+      z-index: 10
+    }
+
+    .bg {
+      width: inherit;
+      height: inherit;
+      position: absolute;
+    }
+
+    #bg-1 {
+      background: url(img/1.jpg);
+      z-index: 8;
+    }
+
+    #bg-2 {
+      background: url(img/2.jpg);
+      z-index: 7;
+    }
+
+    #bg-3 {
+      background: url(img/3.jpg);
+      z-index: 6;
+    }
+
+    #SB__text {
+      background: url(img/graphics.png) -300px 0px;
+      width: 162px;
+      height: 60px;
+      position: absolute;
+      z-index: 9;
+      bottom: 45px;
+      left: 100px;
+      transform: translateX(-50%);
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="#" onclick="window.open(clickTag)" id="SB__300x250">
+    <div id="SB__container">
+      <div id="SB__overlay"></div>
+      <div id="bg-1" class="bg"></div>
+      <div id="bg-2" class="bg"></div>
+      <div id="bg-3" class="bg"></div>
+      <div id="SB__text"></div>
+    </div>
+  </a>
+
+  <script src="js/TweenLite.min.js" type=text/javascript></script>
+  <script src="js/CSSPlugin.min.js" type=text/javascript></script>
+  <script src="js/EasePack.min.js" type=text/javascript></script>
+  <script src="js/TimelineLite.min.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    var clickTag = "https://www.spireinstitute.org/";
+
+    (function() {
+      const bg1 = document.getElementById('bg-1');
+      const bg2 = document.getElementById('bg-2');
+      const bg3 = document.getElementById('bg-3');
+      const text = document.getElementById('SB__text');
+      const timeline = new TimelineLite();
+
+      timeline
+        // Frame 1
+        .from(text, 1, { left: -70, ease: Power1.ease }, '+=0.5')
+        .to(text, 0, { left: -85, backgroundPositionX: -462, width: 180, height: 60 }, '+=2.5')
+
+        // Frame 2
+        .to(bg1, 1, { opacity: 0 })
+        .to(text, 1, { xPercent: 107, ease: Power1.ease }, '-=1')
+        .to(text, 0, { left: -270, backgroundPositionX: -642, width: 174 }, '+=2.5')
+
+        // Frame 3
+        .to(bg2, 1, { opacity: 0 })
+        .to(text, 1, { xPercent: 218, ease: Power1.ease }, '-=1')
+
+    })();
+
+  </script>
+</body>
+</html>
