@@ -139,7 +139,7 @@
 
     li a:hover {
       color: white;
-      border-bottom: 2px solid white;
+      border-bottom: 1px solid white;
       cursor: pointer;
     }
 
@@ -150,12 +150,19 @@
     .active {
       font-weight: 800;
       color: white;
+      border-bottom: 1px solid white;
+    }
+
+    .buttons {
+      width: 100px;
+      margin: 0 auto;
     }
 
 
   </style>
 </head>
 <body>
+
   <nav>
     <ul class="flex-container navbar">
       <li><a href="#" class="active">Basketball</a></li>
@@ -163,6 +170,12 @@
       <li><a href="#">Track</a></li>
     </ul>
   </nav>
+
+  <div class="buttons">
+    <button class="btn-1">1</button>
+    <button class="btn-2">2</button>
+  </div>
+
   <main>
     <div id="_728x90" class="container">
       <span class="tab">728x90</span>
@@ -173,7 +186,6 @@
         <span class="tab">160x600</span>
         <iframe src="1/web/FACILITY-BASKETBALL/160x600/index.html" scrolling="no" data-size="160x600"></iframe>
       </div>
-
       <div>
         <div id="_300x250" class="container">
           <span class="tab">300x250</span>
@@ -188,7 +200,6 @@
           <iframe src="1/web/FACILITY-BASKETBALL/320x50/index.html" scrolling="no" data-size="320x50"></iframe>
         </div>
       </div>
-
       <div id="_300x600" class="container">
         <span class="tab">300x600</span>
         <iframe src="1/web/FACILITY-BASKETBALL/300x600/index.html" scrolling="no" data-size="300x600"></iframe>
@@ -198,10 +209,10 @@
 
   <script type="text/javascript">
     window.addEventListener('load', function() {
-      
+
       const navItems = Array.from(document.querySelectorAll('a'));
       const banners = Array.from(document.querySelectorAll('iframe'));
-      console.log(banners);
+      const toggleBtn = document.querySelector('.toggle-btn');
 
       for (let i = 0; i < navItems.length; i++) {
         navItems[i].addEventListener('click', updateBanners);
@@ -222,6 +233,8 @@
           banners[i].setAttribute('src', filePath);
         }
       }
+
+
 
     })
   </script>
