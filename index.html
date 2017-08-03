@@ -156,6 +156,11 @@
     .buttons {
       width: 100px;
       margin: 0 auto;
+      text-align: center;
+    }
+
+    .btn-active {
+      background: green;
     }
 
 
@@ -172,7 +177,7 @@
   </nav>
 
   <div class="buttons">
-    <button class="btn-1">1</button>
+    <button class="btn-1 btn-active">1</button>
     <button class="btn-2">2</button>
   </div>
 
@@ -210,31 +215,53 @@
   <script type="text/javascript">
     window.addEventListener('load', function() {
 
-      const navItems = Array.from(document.querySelectorAll('a'));
-      const banners = Array.from(document.querySelectorAll('iframe'));
-      const toggleBtn = document.querySelector('.toggle-btn');
+      const navItems = Array.from(document.querySelectorAll('a')),
+            banners = Array.from(document.querySelectorAll('iframe')),
+            buttons = Array.from(document.querySelectorAll('button'));
+      let group = document.querySelector('.active').textContent,
+          design = document.querySelector('.btn-active').textContent,
+          subDirectory = 'FACILITY-',
+          directory = `1/web/${subDirectory}`;
+  
+
+      /* EVENT HANDLERS */
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener('click', updateDesign);
+      }
 
       for (let i = 0; i < navItems.length; i++) {
-        navItems[i].addEventListener('click', updateBanners);
+        navItems[i].addEventListener('click', updateGroup);
       } 
 
 
-      function updateBanners() {
-        let bannerGroup = this.textContent;
+      /* HELPER FUNCTIONS */
+      function updateDesign(e) {
+        design = this.textContent;
+        subDirectory = design === '1' ? 'FACILITY-' : 'SPIRE-';
+        directory = `${design}/web/${subDirectory}`;
+        for (let i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove('btn-active');
+        }
+        this.classList.add('btn-active');
+        updateBanners();
+      }
+
+      function updateGroup() {
+        group = this.textContent;
         for (let i = 0; i < navItems.length; i++) {
           navItems[i].classList.remove('active');
         }
-      
         this.classList.add('active');
+        updateBanners();
+      }
 
+      function updateBanners() {
         for (let i = 0; i < banners.length; i++) {
           let bannerSize = banners[i].dataset.size;
-          let filePath = `1/web/FACILITY-${bannerGroup}/${bannerSize}/index.html`;
+          let filePath = `${directory}${group}/${bannerSize}/index.html`;
           banners[i].setAttribute('src', filePath);
         }
       }
-
-
 
     })
   </script>
