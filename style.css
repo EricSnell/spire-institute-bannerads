@@ -1,0 +1,173 @@
+:root {
+  font-size: 18px;
+}
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+  margin: 0;
+  background: #fff;
+  background: radial-gradient(#787571,#242424);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+main { 
+  max-width: 870px;
+  margin: 40px auto 0;
+  padding-bottom: 30px;
+}
+
+main > .container {
+  margin: 60px auto 0;
+  display: block;
+}
+
+.container {
+  margin: 70px 15px 0;
+  position: relative;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.3s;
+  z-index: 10;
+}
+
+.container:hover {
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.4);
+}
+
+.tab {
+  background: #333;
+  font-weight: 400;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: #999;
+  margin: 0;
+  padding: 5px 15px;
+  position: absolute;
+  top: -1.6em;
+  transition: all 0.3s;
+  z-index: -100;
+}
+
+.container:hover .tab {
+  top: 0.4em;
+}
+
+iframe {
+  border: none;
+  display: inline-block;
+  position: relative;
+  width: inherit;
+  height: inherit;
+  z-index: 100;
+}
+
+iframe:hover {
+  cursor: pointer;
+}
+
+#_728x90 {
+  width: 728px;
+  height: 90px;
+}
+
+#_160x600 {
+  width: 160px;
+  height: 600px;
+}
+
+#_300x250 {
+  width: 300px;
+  height: 250px;
+}
+
+#_300x600 {
+  width: 300px;
+  height: 600px;
+}
+
+#_300x50 {
+  width: 300px;
+  height: 50px;
+}
+
+#_320x50 {
+  width: 320px;
+  height: 50px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+nav {
+  padding-top: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  text-align: center;
+  width: 100px;
+  padding: 20px 12px;
+  margin: 0 10px;
+}
+
+li a {
+  color: #bbb;
+  text-decoration: none;
+  padding-bottom: 5px;
+}
+
+li a:hover {
+  color: white;
+  border-bottom: 1px solid white;
+  cursor: pointer;
+}
+
+.navbar {
+  justify-content: center;
+}
+
+.active {
+  font-weight: 800;
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+.buttons {
+  width: 195px;
+  margin: 20px auto 0;
+  text-align: center;
+}
+
+.buttons button {
+  border: none;
+  padding: 10px 35px;
+  font-size: 13px;
+  margin: 0 4px;
+  font-size: 1rem;
+}
+
+.buttons button:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.btn-active {
+  background: #FFC600;
+}
