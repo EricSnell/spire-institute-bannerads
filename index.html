@@ -13,6 +13,11 @@
 
     html {
       height: 100%;
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: border-box;
     }
 
     body {
@@ -154,15 +159,27 @@
     }
 
     .buttons {
-      width: 100px;
-      margin: 0 auto;
+      width: 195px;
+      margin: 20px auto 0;
       text-align: center;
     }
 
-    .btn-active {
-      background: green;
+    .buttons button {
+      border: none;
+      padding: 10px 35px;
+      font-size: 13px;
+      margin: 0 4px;
+      font-size: 18px;
     }
 
+    .buttons button:hover {
+      cursor: pointer;
+      color: white;
+    }
+
+    .btn-active {
+      background: #FFC600;
+    }
 
   </style>
 </head>
@@ -177,8 +194,8 @@
   </nav>
 
   <div class="buttons">
-    <button class="btn-1 btn-active">1</button>
-    <button class="btn-2">2</button>
+    <button class="btn-active">1</button>
+    <button>2</button>
   </div>
 
   <main>
